@@ -1,0 +1,33 @@
+<!doctype html><meta charset="utf-8"><title>合成官网新版作业题目</title>
+<style>body{font:16px sans-serif}.questionLi{padding:12px}.answerBg{padding:6px}.num_option,.num_option_dx{margin-right:12px}.check_answer,.check_answer_dx{background:#ddd}iframe{width:240px;height:80px}</style>
+<form onsubmit="event.preventDefault();submits++">
+<div class="padBom50 questionLi singleQuesId" typeName="单选题" id="question301" data="301">
+<h3 class="mark_name">1.<span class="colorShallow">(单选题)</span>1.合成新版单选</h3><input type="hidden" id="answer301">
+<div class="stem_answer qtDetail"><div class="clearfix answerBg" onclick="addChoice(this,false)" qid="301"><span class="num_option" data="A">A</span><div class="fl answer_p"><p>合成甲</p></div></div>
+<div class="clearfix answerBg" onclick="addChoice(this,false)" qid="301"><span class="num_option" data="B">B</span><div class="fl answer_p"><p>合成乙</p></div></div></div></div>
+<div class="padBom50 questionLi singleQuesId" typeName="多选题" data="302">
+<h3 class="mark_name">2.<span class="colorShallow">(多选题)</span>2.合成新版多选</h3><input type="hidden" id="answer302">
+<div class="stem_answer qtDetail"><div class="answerBg" onclick="addChoice(this,true)" qid="302"><span class="num_option_dx" data="A">A</span><div class="answer_p">合成甲</div></div>
+<div class="answerBg" onclick="addChoice(this,true)" qid="302"><span class="num_option_dx" data="B">B</span><div class="answer_p">合成乙</div></div>
+<div class="answerBg" onclick="addChoice(this,true)" qid="302"><span class="num_option_dx" data="C">C</span><div class="answer_p">合成丙</div></div></div></div>
+<div class="questionLi singleQuesId" typeName="填空题" data="303"><h3 class="mark_name">3.<span class="colorShallow">(填空题)</span>合成富文本双空</h3>
+<div class="Answer"><div class="textDIV"><textarea id="answerEditor3031"></textarea></div></div><div class="Answer"><div class="textDIV"><textarea id="answerEditor3032"></textarea></div></div></div>
+<div class="questionLi singleQuesId" typeName="填空题" data="304"><h3 class="mark_name">4.<span class="colorShallow">(填空题)</span>保留已填写富文本</h3>
+<div class="Answer"><div class="textDIV"><textarea id="answerEditor3041">我自己写的</textarea></div></div><div class="Answer"><div class="textDIV"><textarea id="answerEditor3042"></textarea></div></div></div>
+<div class="questionLi singleQuesId" typeName="连线题" data="305"><h3 class="mark_name">5.需要手动处理的题目</h3></div>
+<div class="questionLi singleQuesId" typeName="单选题" data="306"><h3 class="mark_name">6.<span class="colorShallow">(单选题)</span>3.14 保留题干里的小数</h3><input type="hidden" id="answer306">
+<div class="answerBg" onclick="addChoice(this,false)" qid="306"><span class="num_option" data="A">A</span><div class="answer_p">一</div></div><div class="answerBg" onclick="addChoice(this,false)" qid="306"><span class="num_option" data="B">B</span><div class="answer_p">二</div></div></div>
+<button type="submit">提交</button><button type="button" onclick="confirms++">确认提交</button></form>
+<script>
+window.submits=0;window.confirms=0;window.editorEvents=0;window.UE={instants:{}};
+function addChoice(card,multi){const q=card.closest('.singleQuesId'),mark=card.querySelector('span[data]'),kind=multi?'check_answer_dx':'check_answer';if(!multi)q.querySelectorAll('span[data]').forEach(s=>s.classList.remove(kind));mark.classList.toggle(kind);document.getElementById('answer'+card.getAttribute('qid')).value=Array.from(q.querySelectorAll('.'+kind)).map(s=>s.getAttribute('data')).join('')}
+document.querySelectorAll('textarea').forEach((source,index)=>{
+ const frame=document.createElement('iframe');source.before(frame);source.style.display='none';
+ frame.onload=()=>{
+  const body=frame.contentDocument.body;body.contentEditable='true';body.textContent=source.value;
+  UE.instants['ueditorInstant'+index]={key:source.id,textarea:source,container:frame,body,isReady:true,
+   getContentTxt:()=>body.textContent,hasContents:()=>!!body.textContent||!!body.querySelector('img'),queryCommandState:()=>-1,
+   setContent:html=>{body.innerHTML=html},fireEvent:name=>{if(name==='contentChange')editorEvents++},sync:()=>{source.value=body.innerHTML}};
+ };frame.srcdoc='<!doctype html><body></body>';
+});
+</script>

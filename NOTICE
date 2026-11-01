@@ -1,0 +1,14 @@
+Qiye (栖页)
+
+This project is derived from SuperAutoStudy:
+https://github.com/DuanInnovator/SuperAutoStudy
+Copyright 2024-2025 DuanInnovator.
+The upstream project is licensed under the Apache License, Version 2.0.
+Original copyright notices in source files are retained.
+
+This distribution adds the Windows desktop client, embedded official browser,
+local desktop services, playback controls, progress presentation, packaging,
+installation scripts and associated fixes and documentation.
+These modifications are provided under the Apache License, Version 2.0.
+
+Third-party components retain their own licenses. See THIRD_PARTY.md.

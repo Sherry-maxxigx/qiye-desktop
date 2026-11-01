@@ -1,0 +1,22 @@
+<!doctype html><meta charset="utf-8"><title>合成官方课程主页</title>
+<style>body{font:16px sans-serif}.nav-content{width:180px}iframe{width:85vw;height:500px}</style>
+<ul class="nav-content"><li dataname="zj"><a title="章节">章节</a></li>
+<li dataname="zy" id="nav_735"><a title="作业" data-url="/work/list.html"><span>作业</span><span> 3</span></a></li></ul>
+<iframe id="frame_content-zj" src="studentcourse.html"></iframe>
+<script>
+window.menuClicks=0;
+sessionStorage.courseLoads=Number(sessionStorage.courseLoads||0)+1;
+if(sessionStorage.fixtureMode==='denied')location.replace('/work/denied.html');
+if(sessionStorage.fixtureMode==='login')location.replace('/login/index.html');
+// Official handlers can be bound after DOMContentLoaded. The first click is
+// deliberately too early; the bridge must retry without navigating data-url.
+setTimeout(function(){
+ document.querySelector('[dataname="zy"]').addEventListener('click',function(){
+  window.menuClicks++;
+  if(document.getElementById('frame_content-zy'))return;
+  document.getElementById('frame_content-zj').style.display='none';
+  var frame=document.createElement('iframe');frame.id='frame_content-zy';
+  frame.src=sessionStorage.fixtureMode==='event-only'?'/work/event-list.html':'/homework-list-shell.html';document.body.appendChild(frame);
+ });
+},1800);
+</script>

@@ -1,0 +1,27 @@
+<!doctype html><meta charset="utf-8"><title>合成作业答题页</title>
+<style>body{font:16px sans-serif;padding:20px}.singleQuesId{border-bottom:1px solid #ddd;padding:15px}li{padding:4px;cursor:pointer}.check_answer,.check_answer_dx{color:purple;background:#ddd}textarea{width:180px;height:35px}</style>
+<form id="form1" onsubmit="event.preventDefault();submits++">
+<div class="singleQuesId" data="101"><div class="TiMu" data="0"><div class="Zy_TItle">【单选题】合成城市题</div><ul>
+<li onclick="pick(this,'101',false)"><span class="num_option" data="A">A</span><a>上海</a></li>
+<li onclick="pick(this,'101',false)"><span class="num_option" data="B">B</span><a>北京</a></li></ul><input type="hidden" id="answer101" value=""></div></div>
+<div class="singleQuesId" data="102"><div class="TiMu" data="1"><div class="Zy_TItle">【多选题】合成多选题</div><ul>
+<li onclick="pick(this,'102',true)"><span class="num_option_dx" data="A">A</span><a>甲</a></li>
+<li onclick="pick(this,'102',true)"><span class="num_option_dx" data="B">B</span><a>乙</a></li>
+<li onclick="pick(this,'102',true)"><span class="num_option_dx" data="C">C</span><a>丙</a></li></ul><input type="hidden" id="answer102" value=""></div></div>
+<div class="singleQuesId" data="103"><div class="TiMu" data="3"><div class="Zy_TItle">【判断题】合成判断题</div><ul>
+<li onclick="pick(this,'103',false)"><span class="num_option" data="true">A</span><a>对</a></li>
+<li onclick="pick(this,'103',false)"><span class="num_option" data="false">B</span><a>错</a></li></ul><input type="hidden" id="answer103" value=""></div></div>
+<div class="singleQuesId" data="104"><div class="TiMu" data="0"><div class="Zy_TItle">【单选题】合成题库缺失题</div><ul>
+<li onclick="pick(this,'104',false)"><span class="num_option" data="A">A</span><a>一</a></li>
+<li onclick="pick(this,'104',false)"><span class="num_option" data="B">B</span><a>二</a></li></ul><input type="hidden" id="answer104" value=""></div></div>
+<div class="singleQuesId" data="105"><div class="TiMu" data="0"><div class="Zy_TItle">【单选题】保留手动答案</div><ul>
+<li onclick="pick(this,'105',false)"><span class="num_option check_answer" data="A">A</span><a>自己填写</a></li>
+<li onclick="pick(this,'105',false)"><span class="num_option" data="B">B</span><a>其他答案</a></li></ul><input type="hidden" id="answer105" value="A"></div></div>
+<div class="singleQuesId" data="106"><div class="TiMu" data="2"><div class="Zy_TItle">【填空题】合成双空题</div><textarea></textarea><textarea></textarea></div></div>
+<div class="singleQuesId" data="107"><div class="TiMu" data="9"><div class="Zy_TItle">【未知题型】手动处理</div></div></div>
+<button type="submit" class="btnSubmit">手动提交</button><button type="button" id="confirm" onclick="confirms++">确认提交</button>
+</form>
+<script>
+window.submits=0;window.confirms=0;
+function pick(li,id,multiple){const mark=li.querySelector('span[data]'),kind=multiple?'check_answer_dx':'check_answer',q=li.closest('.singleQuesId');if(!multiple)q.querySelectorAll('span[data]').forEach(s=>s.classList.remove(kind));mark.classList.toggle(kind);document.getElementById('answer'+id).value=Array.from(q.querySelectorAll('span.'+kind)).map(s=>s.getAttribute('data')).join('')}
+</script>

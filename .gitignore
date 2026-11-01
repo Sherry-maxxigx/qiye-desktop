@@ -1,0 +1,25 @@
+# Personal state and generated credentials
+/data/
+/logs/
+/temp/
+/backups/
+/cache/
+/tools/
+/research/
+/.local/
+/.downloads/
+/config/*
+!/config/*.example.yml
+
+# Generated packages
+/dist/
+/desktop/*.exe
+/backend/target*/
+*.user
+*.suo
+.vs/
+.idea/
+*.log
+Thumbs.db
+__pycache__/
+.DS_Store

@@ -1,0 +1,11 @@
+<!doctype html><meta charset="utf-8"><title>合成新版官方作业列表</title>
+<style>body{font:17px sans-serif}li{padding:12px;margin:8px;border:1px solid #ccc}</style>
+<div class="main task-list"><div class="bottomList"><ul>
+<li onclick="goTask(this)" data="/work/open.html?workId=1&amp;ticket=synthetic-one"><div class="tag work-icon icon-zy"></div><div class="right-content"><p class="overHidden2 fl" title="合成卡片作业一">合成卡片作业一</p><p class="status fl">未交</p><div class="time notOver">截止时间：2099年</div></div></li>
+<li onclick="goTask(this)" data="https://player-test.invalid/work/open.html?workId=2&amp;ticket=synthetic-two"><div class="right-content"><p class="overHidden2 fl">合成卡片作业二</p><p class="status fl">未交</p><div class="time notOver">不限时</div></div></li>
+<li onclick="goTask(this)" data="/work/open.html?workId=3&amp;ticket=synthetic-three"><div class="right-content"><p class="overHidden2 fl">合成卡片作业三</p><p class="status fl">未交</p><div class="time notOver">不限时</div></div></li>
+<li onclick="goTask(this)"><div class="right-content"><p class="overHidden2 fl">合成已交</p><p class="status fl">已交</p></div></li>
+<li onclick="goTask(this)"><div class="right-content"><p class="overHidden2 fl">合成截止</p><p class="status fl">未交</p><div class="time">已截止</div></div></li>
+<li onclick="goTask(this)"><div class="right-content"><p class="overHidden2 fl">合成未开始</p><p class="status fl">未交 未开始</p></div></li>
+</ul></div></div>
+<script>function goTask(card){window.open(card.getAttribute('data'),'_blank')}</script>

@@ -1,0 +1,62 @@
+server:
+  address: 127.0.0.1
+  port: __API_PORT__
+qiye:
+  installation-id: '__INSTALLATION_ID__'
+spring:
+  datasource:
+    url: 'jdbc:mysql://127.0.0.1:__DB_PORT__/tihai?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false'
+    username: root
+    password: '__DB_PASSWORD__'
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 1
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration
+  cloud:
+    nacos:
+      config:
+        enabled: false
+      discovery:
+        enabled: false
+        register-enabled: false
+enable-service-registry: false
+dubbo:
+  application:
+    name: qiye-local
+    qos-enable: false
+  config-center:
+    enabled: false
+  metadata-report:
+    enabled: false
+  registry:
+    address: N/A
+    register: false
+  protocol:
+    name: injvm
+    port: -1
+custom:
+  thread-pool:
+    core-size: 1
+    max-size: 1
+    keep-alive: 60
+    queue-capacity: 100
+    thread-name-prefix: 'local-study-'
+    allow-core-thread-timeout: true
+study:
+  chaoxing:
+    # Keep 1x playback. Do not add or enable speed-up features: platform data errors can result.
+    speed: 1
+cors:
+  allow:
+    origins:
+      - 'http://127.0.0.1:__API_PORT__'
+tiku:
+  settings:
+    provider: cxmooc
+    # Optional local JSON data; public releases do not include course question data.
+    local-bank-file: ''
+    cxmooc-url: https://cx.icodef.com/v2/answer?platform=cx
+    buguake-enabled: true
+    buguake-url: https://easylearn.baidu.com/edu-web-go/bgk/searchlist

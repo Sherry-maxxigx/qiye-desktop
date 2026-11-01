@@ -1,0 +1,7 @@
+<!doctype html><meta charset="utf-8"><title>合成独立作业窗口</title>
+<style>html,body{height:100%;margin:0}iframe{height:100%;width:100%;border:0}</style>
+<iframe id="assignment"></iframe>
+<script>
+window.openedId=new URLSearchParams(location.search).get('workId');
+document.getElementById('assignment').src=openedId==='2'?'/homework-modern.html':openedId==='3'?'/work/dowork-modern.html':'/homework-questions.html';
+</script>

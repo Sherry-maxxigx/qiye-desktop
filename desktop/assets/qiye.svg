@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="栖页：书页与飞鸟">
+<defs>
+ <linearGradient id="bg" x2=".6" y2="1"><stop stop-color="#62548F"/><stop offset="1" stop-color="#252D50"/></linearGradient>
+ <linearGradient id="paper" x2=".65" y2="1"><stop stop-color="#FFFAEE"/><stop offset="1" stop-color="#DDD9ED"/></linearGradient>
+ <linearGradient id="mint" x2=".65" y2="1"><stop stop-color="#E3FAE9"/><stop offset="1" stop-color="#73BEB7"/></linearGradient>
+</defs>
+<rect x="16" y="16" width="480" height="480" rx="116" fill="url(#bg)"/>
+<circle cx="362" cy="138" r="28" fill="#F3C77F"/>
+<path d="M 256 315 C 205 240 146 207 94 204 C 100 269 173 329 256 352 Z" fill="url(#paper)"/>
+<path d="M 256 315 C 295 234 364 188 425 174 C 414 261 344 331 256 352 Z" fill="url(#mint)"/>
+<g fill="none" stroke="#FFFFFF" stroke-opacity=".55" stroke-width="4" stroke-linecap="round">
+ <path d="M 132 233 C 176 246 218 280 244 315"/><path d="M 383 215 C 338 238 297 277 268 315"/>
+</g>
+</svg>

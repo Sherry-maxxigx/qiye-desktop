@@ -1,0 +1,11 @@
+<!doctype html><meta charset="utf-8"><title>合成仅有点击事件的作业列表</title>
+<ul class="workList">
+<li data-workid="11"><h3 class="workName">合成同名事件作业</h3><span class="status">未交</span><button onclick="openEvent(1)">开始作答</button></li>
+<li data-workid="12"><h3 class="workName">合成同名事件作业</h3><span class="status">未交</span><button onclick="openEvent(2)">开始作答</button></li>
+</ul>
+<script>
+function openEvent(id){window.open('/work/open.html?workId='+id,'_blank')}
+const visits=Number(sessionStorage.eventListLoads||0)+1;sessionStorage.eventListLoads=visits;
+if(visits%2===0)document.querySelector('ul').appendChild(document.querySelector('li'));
+if(sessionStorage.hideEvent)document.querySelector('[data-workid="'+sessionStorage.hideEvent+'"]').remove();
+</script>
